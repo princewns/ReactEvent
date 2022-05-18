@@ -14,7 +14,7 @@ const InputArrow = () => {
     //스프레드 연산자를 사용해서 form안의 값을 꺼내서 사용
     //동일한 키값은 가장 마지막에 작성된 값으로 대체
     const nextForm = {
-      ...form,
+      ...form, // 객체의 속성을 해체하여 개별변수에 담게할수있는 표현식(...)
       [e.target.name] : e.target.value,
     };
     setForm(nextForm);
