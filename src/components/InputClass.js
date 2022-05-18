@@ -15,7 +15,9 @@ class InputClass extends Component {
 
   //input 값이 바뀔떄마다 값을 state에 넣어주는 메소드
   inputChange(e) {
-      this.setState({ message : e.target.value });
+      //객체 형태 키 : 값
+      //키를 [] 감싸면 가르키는 실제값이 사용
+      this.setState({ [e.target.name] : e.target.value });
   };
   //화살표 함수로 연결시 bind로 연결하지 않아도 된다.
   showMessage = () => {
@@ -26,19 +28,11 @@ class InputClass extends Component {
     return (
       <div>
         <h2>이벤트 연습</h2>
-        <input type="text" name='message' placeholder='입력하세요'
-        value={message} onChange={(e) => {
-          this.setState({ message : e.target.value });
-        }}></input>
+        <input type="text" name='message' placeholder='입력하세요 메세지'
+        value={message} onChange={this.inputChange}></input>
         <p>{message}</p>
-        <input type='text' placeholder='입력하세요'
-         onChange={(e) => (
-           this.setState(() => ({
-             //객체 형태 키 : 값
-             //키를 [] 감싸면 가르키는 실제값이 사용
-             user : e.target.value
-           }))
-         )}></input>
+        <input type='text' placeholder='입력하세요 유저' name='user' value={user}
+         onChange={this.inputChange}></input>
          <p>{user}</p>
 
          <button onDoubleClick={this.showMessage}>응애</button>

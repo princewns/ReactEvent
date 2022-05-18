@@ -2,6 +2,9 @@ import './App.css';
 import EventClass from './components/EventClass';
 import InputClass from './components/InputClass';
 import InputArrow from './components/InputArrow';
+import RefClass from './components/RefClass';
+//import TestRefClass from './components/TestRefClass';
+import RefComponent from './components/RefComponent';
 
 function App() {
   return (
@@ -10,6 +13,8 @@ function App() {
         <EventClass name = "응애" />
         <InputClass />
         <InputArrow />
+        <RefClass />
+        <RefComponent />
       </header>
     </div>
   );

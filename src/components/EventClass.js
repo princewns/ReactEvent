@@ -14,12 +14,13 @@ class EventClass extends Component {
     };
     //클래스 안에서 사용하기 위해 this.onClickEvent 함수 이름 작성
     // 작성한 함수는 constructor 바깥에 작성되어서 연결하기 위해
-    // this.onClickEvent 박에서 작성한 이름으로 연결
-    /* 연결할때 this.setState의 this 위치를 알려주기 위해 bind(this)로 연결
-    하지만, 화살표 함수로 연결시 바인드 안해도 됨 */
+    // this.onClickEvent 밖에서 작성한 이름으로 연결
+    /* 연결할때 this.setState의 this 위치를 알려주기 위해 bind(this)로 연결 */
     this.onClickEvent = this.onClickEvent.bind(this);
   };
 
+  //선언적 함수 형태로 작성할 경우 constructor에서 bind 해주어야 한다.
+  //화살표 함수 형태로 작성할 경우 this가 없기 때문에 호출되는 곳의 this를 사용 (bind:x)
   onClickEvent() {
     this.setState({message : '응애'});
     if(this.state.message === '응애') this.setState({message : '메세지입니다.'});
